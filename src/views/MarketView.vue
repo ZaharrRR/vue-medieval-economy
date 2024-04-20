@@ -2,7 +2,7 @@
   <div class="flex justify-between p-4 gap-5 bg-[#333] text-white min-h-screen">
     <div class="flex flex-col gap-4 w-[75%]">
       <div class="flex items-center gap-3">
-        <span class="font-bold text-xl">Городской рынок</span>
+        <span class="font-bold text-xl">Town Market</span>
         <span class="text-yellow-400">{{ town.budget.toFixed(2) }}g</span>
 
         <Multiplier v-model="multiplier" />
@@ -29,37 +29,16 @@
       </div>
     </div>
 
-    <div class="bg-[#444444] rounded h-fit p-3 min-w-60">
-      <div>
-        <p>{{ me.name }}</p>
-        <p>{{ formateDays(day) }}</p>
-        <p class="text-yellow-400">
-          <span class="text-white">cash:</span> {{ me.money.toFixed(2) }}g
-        </p>
-      </div>
-
-      <div class="mt-3">
-        <span>goods:</span>
-        <div v-for="(good, index) in me.goods" :key="index">
-          <div v-if="good.amount">
-            <span>{{ good.type.name + ": " }}</span>
-            <span class="text-sm">{{ good.amount + good.type.unit }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <UserMenu :me="me.value" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
 
-import { formateDays } from "../utils/formatDays";
-
 import GoodsCard from "../components/Market/GoodsCard.vue";
 import Multiplier from "../components/Market/Multiplier.vue";
-
-const day = ref(0);
+import UserMenu from "../components/Market/UserMenu.vue";
 
 const multiplier = ref(1);
 

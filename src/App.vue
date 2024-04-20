@@ -16,7 +16,7 @@
       </nav>
     </aside>
 
-    <div class="overflow-y-auto w-full">
+    <div class="overflow-y-auto overflow-x-hidden w-full">
       <router-view />
     </div>
   </div>
