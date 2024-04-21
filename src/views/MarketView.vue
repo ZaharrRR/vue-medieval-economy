@@ -29,7 +29,25 @@
       </div>
     </div>
 
-    <UserMenu :me="me.value" />
+    <div class="bg-[#444444] rounded h-fit p-3 min-w-60">
+      <div>
+        <p>{{ me.name }}</p>
+        <p>{{ formateDays(day) }}</p>
+        <p class="text-yellow-400">
+          <span class="text-white">cash:</span> {{ me.money.toFixed(2) }}g
+        </p>
+      </div>
+
+      <div class="mt-3">
+        <span>goods:</span>
+        <div v-for="(good, index) in me.goods" :key="index">
+          <div v-if="good.amount">
+            <span>{{ good.type.name + ": " }}</span>
+            <span class="text-sm">{{ good.amount + good.type.unit }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,16 +56,18 @@ import { ref, onMounted, computed } from "vue";
 
 import GoodsCard from "../components/Market/GoodsCard.vue";
 import Multiplier from "../components/Market/Multiplier.vue";
-import UserMenu from "../components/Market/UserMenu.vue";
+
+import { formateDays } from "../utils/formatDays";
 
 const multiplier = ref(1);
+const day = ref(1);
 
 const town = ref({
   id: "0",
-  population: 47,
   wealth: 21,
   budget: 374,
   tax: 0.1,
+  population: [],
   goods: [],
 });
 
@@ -147,6 +167,44 @@ const goods = ref([
     volume: 50,
     necessity: 50,
     consumption: 0.1,
+  },
+]);
+
+const groups = ref([
+  {
+    id: "7635635453",
+    people: 78,
+    type: "peasants",
+    happiness: 47,
+    education: 13,
+  },
+  {
+    id: "76457u6544",
+    people: 11,
+    type: "laborers",
+    happiness: 31,
+    education: 24,
+  },
+  {
+    id: "457654g234",
+    people: 7,
+    type: "clergymen",
+    happiness: 68,
+    education: 57,
+  },
+  {
+    id: "654hnf4135",
+    people: 2,
+    type: "aristocrats",
+    happiness: 85,
+    education: 41,
+  },
+  {
+    id: "4234hgf642",
+    people: 6,
+    type: "merchants",
+    happiness: 67,
+    education: 43,
   },
 ]);
 

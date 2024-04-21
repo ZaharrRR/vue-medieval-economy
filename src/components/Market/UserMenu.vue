@@ -21,11 +21,15 @@
 </template>
 
 <script setup>
-import { formateDays } from "";
+import { ref } from "vue";
+
+import { formateDays } from "/Users/1/Documents/GitHub/vue-medieval-economy/src/utils/formatDays";
 
 const props = defineProps({
   me: Object,
 });
+
+const me = ref(props.me);
 
 const day = ref(0);
 </script>

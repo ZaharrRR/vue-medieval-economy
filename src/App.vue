@@ -11,8 +11,9 @@
       @mouseleave="isHovered = false"
     >
       <nav class="flex flex-col gap-3" :class="{ hidden: !isHovered }">
-        <RouterLink class="link" to="/">home </RouterLink>
-        <RouterLink class="link" to="/market">market </RouterLink>
+        <RouterLink class="link" to="/">home</RouterLink>
+        <RouterLink class="link" to="/cities">cities</RouterLink>
+        <RouterLink class="link" to="/market">market</RouterLink>
       </nav>
     </aside>
 

@@ -2,35 +2,33 @@ export function formateDays(days) {
   let remainingDays = days;
   let result = "";
 
-  // Годы
   if (remainingDays >= 365) {
     const years = Math.floor(remainingDays / 365);
-    result += `${years} ${years === 1 ? "год" : years < 5 ? "года" : "лет"} `;
+    result += `${years} ${
+      years === 1 ? "year" : years < 5 ? "years" : "years"
+    } `;
     remainingDays %= 365;
   }
 
-  // Месяцы
   if (remainingDays >= 30) {
     const months = Math.floor(remainingDays / 30);
     result += `${months} ${
-      months === 1 ? "месяц" : months < 5 ? "месяца" : "месяцев"
+      months === 1 ? "month" : months < 5 ? "months" : "months"
     } `;
     remainingDays %= 30;
   }
 
-  // Недели
   if (remainingDays >= 7) {
     const weeks = Math.floor(remainingDays / 7);
     result += `${weeks} ${
-      weeks === 1 ? "неделя" : weeks < 5 ? "недели" : "недель"
+      weeks === 1 ? "week" : weeks < 5 ? "weeks" : "weeks"
     } `;
     remainingDays %= 7;
   }
 
-  // Оставшиеся дни
   if (remainingDays > 0) {
     result += `${remainingDays} ${
-      remainingDays === 1 ? "день" : remainingDays < 5 ? "дня" : "дней"
+      remainingDays === 1 ? "day" : remainingDays < 5 ? "day" : "days"
     }`;
   }
 
