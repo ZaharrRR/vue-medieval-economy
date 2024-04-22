@@ -2,9 +2,9 @@
   <div class="relative h-screen flex overflow-hidden bg-[#333] text-white">
     <aside
       :class="{
-        'absolute inset-y-0 left-0 w-1 h-full bg-[#292929]  text-white overflow-hidden transition-all duration-300 ease-in-out':
+        'absolute inset-y-0 left-0 w-1 h-full bg-[#292929]  text-white overflow-hidden transition-all duration-300 ease-in-out z-50':
           !isHovered,
-        'absolute inset-y-0 left-0 w-64 h-full bg-[#292929] p-5 text-white overflow-hidden transition-all duration-300 ease-in-out':
+        'absolute inset-y-0 left-0 w-64 h-full bg-[#292929] p-5 text-white overflow-hidden transition-all duration-300 ease-in-out z-50':
           isHovered,
       }"
       @mouseenter="isHovered = true"
