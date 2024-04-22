@@ -1,7 +1,8 @@
-# Vue 3 + Vite
+# Medieval game
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Briefly about the game. This is an economic simulator in the setting of the late Middle Ages.
 
-## Recommended IDE Setup
+I have long had a desire to create a living economic simulator in this era. And so I decided to do something with my own hands for this.
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+I want to make the most independent and living economic system possible with maximum replayability. In this game, the player's actions should not have a big impact on the world, but this will not make the gameplay boring. Since the main feature of the game is its independence.
+
