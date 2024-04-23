@@ -48,6 +48,22 @@
         </div>
       </div>
     </div>
+    <div>
+      <div v-for="town in TownStore.getVillages" :key="town.id">
+        <div>{{ town.name }}</div>
+        <div class="text-yellow-400">{{ town.budget }}</div>
+        <button
+          @click="TownStore.setGold(town.budget - 10, town.id)"
+          class="bg-gray-600"
+        >
+          уменьшить бюджет на 10
+        </button>
+        <button @click="TownStore.deleteTown(town.id)" class="bg-red-400">
+          удалить
+        </button>
+      </div>
+      <div class="text-yellow-400 mt-5">{{ TownStore.getCountGold }}</div>
+    </div>
   </div>
 </template>
 
@@ -58,6 +74,10 @@ import GoodsCard from "../components/Market/GoodsCard.vue";
 import Multiplier from "../components/Market/Multiplier.vue";
 
 import { formateDays } from "../utils/formatDays";
+
+import { useTownStore } from "../stores/TownStore";
+
+const TownStore = useTownStore();
 
 const multiplier = ref(1);
 const day = ref(1);

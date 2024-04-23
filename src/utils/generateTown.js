@@ -34,7 +34,7 @@ const generateTown = () => {
   town.value.wealth = generateWealth(town.value.type);
   town.value.budget = generateBudget(town.value.type);
 
-  return town;
+  return town.value;
 };
 
 const generateTowns = (count) => {

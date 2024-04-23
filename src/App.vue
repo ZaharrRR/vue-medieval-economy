@@ -24,7 +24,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+import { useTownStore } from "./stores/TownStore";
+
+const TownStore = useTownStore();
+
+onMounted(() => {
+  TownStore.generateTowns(10);
+});
 
 const isHovered = ref();
 </script>

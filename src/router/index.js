@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import MarketView from "../views/MarketView.vue";
 import CitiesListView from "../views/CitiesListView.vue";
+import TownView from "../views/TownView.vue";
 
 export default createRouter({
   history: createWebHistory(),
@@ -16,6 +17,13 @@ export default createRouter({
       name: "Cities",
       path: "/cities",
       component: CitiesListView,
+      children: [
+        {
+          name: "Town",
+          path: ":id",
+          component: TownView,
+        },
+      ],
     },
     {
       name: "Market",
