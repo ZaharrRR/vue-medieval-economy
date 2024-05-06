@@ -18,7 +18,7 @@
                 >{{ currentTown.budget.toFixed(2) }}g</span
               >
             </p>
-            <p>wealth: {{ currentTown.wealth.toFixed(2) }}</p>
+            <p>wealth: {{ (currentTown.wealth * 100).toFixed(1) }}</p>
             <p>tax: {{ (currentTown.tax * 100).toFixed(2) + "%" }}</p>
           </div>
         </div>
@@ -55,7 +55,7 @@
             <td class="text-yellow-400">
               {{ town.budget.toFixed(0) + "g" }}
             </td>
-            <td>{{ town.wealth.toFixed(0) }}</td>
+            <td>{{ (town.wealth * 100).toFixed(1) }}</td>
             <td>{{ (town.tax * 100).toFixed(2) + "%" }}</td>
           </tr>
         </tbody>

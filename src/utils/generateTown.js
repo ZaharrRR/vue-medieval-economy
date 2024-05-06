@@ -29,6 +29,7 @@ const generateTown = () => {
     coordinates: generateUniqueCoordinates(),
     goods: [],
     population: [],
+    buildings: [],
   });
 
   town.value.wealth = generateWealth(town.value.type);
@@ -495,13 +496,13 @@ const randomNameGenerator = () => {
 
 function generateWealth(type) {
   if (type === "village") {
-    return Math.random() * 20 + 20;
+    return Math.random() * 0.2 + 0.2;
   } else if (type === "town") {
-    return Math.random() * 30 + 30;
+    return Math.random() * 0.3 + 0.3;
   } else if (type === "city") {
-    return Math.random() * 40 + 40;
+    return Math.random() * 0.4 + 0.4;
   } else if (type === "metropolis") {
-    return Math.random() * 50 + 50;
+    return Math.random() * 0.5 + 0.5;
   } else {
     return console.log("city type is wrong");
   }

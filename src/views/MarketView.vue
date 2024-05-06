@@ -84,7 +84,7 @@ const day = ref(1);
 
 const town = ref({
   id: "0",
-  wealth: 21,
+  wealth: 0.21,
   budget: 374,
   tax: 0.1,
   population: [],
@@ -115,7 +115,7 @@ const goods = ref([
     avgPrice: 2,
     weight: 1,
     volume: 2,
-    necessity: 90,
+    necessity: 0.9,
     consumption: 7,
   },
   {
@@ -125,7 +125,7 @@ const goods = ref([
     avgPrice: 10,
     weight: 1,
     volume: 1,
-    necessity: 70,
+    necessity: 0.7,
     consumption: 4,
   },
   {
@@ -135,7 +135,7 @@ const goods = ref([
     avgPrice: 7,
     weight: 0.5,
     volume: 1,
-    necessity: 80,
+    necessity: 0.8,
     consumption: 3,
   },
   {
@@ -145,7 +145,7 @@ const goods = ref([
     avgPrice: 3,
     weight: 0.3,
     volume: 1,
-    necessity: 90,
+    necessity: 0.9,
     consumption: 8,
   },
   {
@@ -155,7 +155,7 @@ const goods = ref([
     avgPrice: 15,
     weight: 560,
     volume: 1000,
-    necessity: 60,
+    necessity: 0.6,
     consumption: 0.5,
   },
   {
@@ -165,7 +165,7 @@ const goods = ref([
     avgPrice: 2,
     weight: 900,
     volume: 1000,
-    necessity: 30,
+    necessity: 0.3,
     consumption: 0.2,
   },
   {
@@ -175,7 +175,7 @@ const goods = ref([
     avgPrice: 20,
     weight: 1,
     volume: 0.5,
-    necessity: 10,
+    necessity: 0.1,
     consumption: 0.1,
   },
   {
@@ -185,7 +185,7 @@ const goods = ref([
     avgPrice: 100,
     weight: 20,
     volume: 50,
-    necessity: 50,
+    necessity: 0.5,
     consumption: 0.1,
   },
 ]);
@@ -195,36 +195,36 @@ const groups = ref([
     id: "7635635453",
     people: 78,
     type: "peasants",
-    happiness: 47,
-    education: 13,
+    happiness: 0.47,
+    education: 0.13,
   },
   {
     id: "76457u6544",
     people: 11,
     type: "laborers",
-    happiness: 31,
-    education: 24,
+    happiness: 0.31,
+    education: 0.24,
   },
   {
     id: "457654g234",
     people: 7,
     type: "clergymen",
-    happiness: 68,
-    education: 57,
+    happiness: 0.68,
+    education: 0.57,
   },
   {
     id: "654hnf4135",
     people: 2,
     type: "aristocrats",
-    happiness: 85,
-    education: 41,
+    happiness: 0.85,
+    education: 0.41,
   },
   {
     id: "4234hgf642",
     people: 6,
     type: "merchants",
-    happiness: 67,
-    education: 43,
+    happiness: 0.67,
+    education: 0.43,
   },
 ]);
 
@@ -247,7 +247,7 @@ const generateGoods = () => {
     return {
       type: good,
       amount: Math.floor(Math.random() * 100),
-      price: good.avgPrice * (town.value.wealth / 100 + 0.5),
+      price: good.avgPrice * (town.value.wealth + 0.5),
     };
   });
 };
