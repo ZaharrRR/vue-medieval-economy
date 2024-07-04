@@ -22,11 +22,23 @@
 </template>
 
 <script setup>
+import { useTownStore } from "../stores/TownStore";
+
+const TownStore = useTownStore();
+
+const towns = TownStore.getTowns;
+
 const props = defineProps({
   currentTown: {
     type: Object,
   },
 });
+
+const gridSize = {
+  width: 20,
+  height: 20,
+};
+
 const hasTown = (x, y) => {
   return towns.some(
     (town) => town.coordinates.x === x && town.coordinates.y === y
@@ -38,7 +50,7 @@ const showTown = (x, y) => {
     (town) => town.coordinates.x === x && town.coordinates.y === y
   );
   if (town) {
-    currentTown.value = town;
+    props.currentTown = town;
   }
 };
 
@@ -51,9 +63,9 @@ const getTownName = (x, y) => {
 
 const isTownSelected = (x, y) => {
   return (
-    currentTown.value &&
-    currentTown.value.coordinates.x === x &&
-    currentTown.value.coordinates.y === y
+    props.currentTown &&
+    props.currentTown.coordinates.x === x &&
+    props.currentTown.coordinates.y === y
   );
 };
 </script>

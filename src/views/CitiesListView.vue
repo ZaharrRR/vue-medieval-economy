@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <div>
         <span class="text-sm italic">you can select city by click</span>
-        <MapGrid />
+        <MapGrid :currentTown="currentTown" />
       </div>
 
       <div v-if="currentTown" class="flex gap-3 w-full">
@@ -66,6 +66,8 @@
 
 <script setup>
 import { ref } from "vue";
+
+import MapGrid from "../components/MapGrid.vue";
 
 import { gridSize } from "../utils/generateCoordinates";
 import { RouterLink } from "vue-router";
