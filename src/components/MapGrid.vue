@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { useTownStore } from "../stores/TownStore";
+import { useTownStore } from "@/stores/TownStore";
 
 const TownStore = useTownStore();
 

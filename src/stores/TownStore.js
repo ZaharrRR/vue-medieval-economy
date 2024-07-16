@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { generateTowns } from "../utils/generateTown";
+import { generateTowns } from "@/utils/generateTown";
 
 export const useTownStore = defineStore("townStore", {
   state: () => ({
@@ -10,6 +10,7 @@ export const useTownStore = defineStore("townStore", {
     getTowns() {
       return this.towns;
     },
+
     getVillages() {
       return this.towns.filter((town) => town.type === "village");
     },
@@ -24,14 +25,18 @@ export const useTownStore = defineStore("townStore", {
     },
   },
   actions: {
-    async generateTowns(amount) {
+    generateTowns(amount) {
       this.towns = generateTowns(amount);
     },
-    async setGold(amount, id) {
+    getTown(id) {
+      return this.towns.find((town) => town.id == id);
+    },
+
+    setGold(amount, id) {
       const town = this.towns.find((town) => town.id == id);
       town.budget = amount;
     },
-    async deleteTown(id) {
+    deleteTown(id) {
       this.towns = this.towns.filter((town) => town.id !== id);
     },
   },

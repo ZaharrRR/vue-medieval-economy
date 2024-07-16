@@ -23,7 +23,7 @@
 <script setup>
 import { ref } from "vue";
 
-import { formateDays } from "/Users/1/Documents/GitHub/vue-medieval-economy/src/utils/formatDays";
+import { formateDays } from "@/utils/formatDays";
 
 const props = defineProps({
   me: Object,

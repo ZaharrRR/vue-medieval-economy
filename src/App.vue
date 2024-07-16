@@ -12,7 +12,7 @@
     >
       <nav class="flex flex-col gap-3" :class="{ hidden: !isHovered }">
         <RouterLink class="link" to="/">home</RouterLink>
-        <RouterLink class="link" to="/cities">cities</RouterLink>
+        <RouterLink class="link" to="/towns">cities</RouterLink>
         <RouterLink class="link" to="/market">market</RouterLink>
       </nav>
     </aside>
@@ -26,12 +26,12 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
-import { useTownStore } from "./stores/TownStore";
+import { useTownStore } from "@/stores/TownStore";
 
 const TownStore = useTownStore();
 
 onMounted(() => {
-  TownStore.generateTowns(10);
+  TownStore.generateTowns(20);
 });
 
 const isHovered = ref();

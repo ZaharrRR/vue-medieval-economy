@@ -54,12 +54,12 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 
-import GoodsCard from "../components/Market/GoodsCard.vue";
-import Multiplier from "../components/Market/Multiplier.vue";
+import GoodsCard from "@/components/Market/GoodsCard.vue";
+import Multiplier from "@/components/Market/Multiplier.vue";
 
-import { formateDays } from "../utils/formatDays";
+import { formateDays } from "@/utils/formatDays";
 
-import { useTownStore } from "../stores/TownStore";
+import { useTownStore } from "@/stores/TownStore";
 
 const TownStore = useTownStore();
 

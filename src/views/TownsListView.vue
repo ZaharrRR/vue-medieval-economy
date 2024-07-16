@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <RouterLink :to="`/cities/:${currentTown.id}`">
+        <RouterLink :to="`/towns/${currentTown.id}`">
           <button
             class="bg-[#444444] hover:bg-[#474747] rounded p-1 px-3 mt-6 text-lg font-bold h-fit"
           >
@@ -39,6 +39,7 @@
           <tr>
             <th>name</th>
             <th>type</th>
+            <th>population</th>
             <th>budget</th>
             <th>wealth</th>
             <th>tax</th>
@@ -52,6 +53,7 @@
               </button>
             </td>
             <td>{{ town.type }}</td>
+            <td>{{ getTotalPopulation(index) }}</td>
             <td class="text-yellow-400">
               {{ town.budget.toFixed(0) + "g" }}
             </td>
@@ -67,12 +69,12 @@
 <script setup>
 import { ref } from "vue";
 
-import MapGrid from "../components/MapGrid.vue";
+import MapGrid from "@/components/MapGrid.vue";
 
-import { gridSize } from "../utils/generateCoordinates";
+import { gridSize } from "@/utils/generateCoordinates";
 import { RouterLink } from "vue-router";
 
-import { useTownStore } from "../stores/TownStore";
+import { useTownStore } from "@/stores/TownStore";
 
 const TownStore = useTownStore();
 
@@ -85,6 +87,10 @@ const setTown = (id) => {
   if (town) {
     currentTown.value = town;
   }
+};
+
+const getTotalPopulation = (index) => {
+  return towns[index].groups.reduce((acc, group) => acc + group.size, 0);
 };
 </script>
 

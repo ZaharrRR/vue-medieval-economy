@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "../views/HomeView.vue";
-import MarketView from "../views/MarketView.vue";
-import CitiesListView from "../views/CitiesListView.vue";
-import TownView from "../views/TownView.vue";
+import HomeView from "@/views/HomeView.vue";
+import MarketView from "@/views/MarketView.vue";
+import TownsListView from "@/views/TownsListView.vue";
+import TownView from "@/views/TownView.vue";
 
 export default createRouter({
   history: createWebHistory(),
@@ -14,16 +14,14 @@ export default createRouter({
       component: HomeView,
     },
     {
-      name: "Cities",
-      path: "/cities",
-      component: CitiesListView,
-      children: [
-        {
-          name: "Town",
-          path: ":id",
-          component: TownView,
-        },
-      ],
+      name: "Towns",
+      path: "/towns",
+      component: TownsListView,
+    },
+    {
+      name: "Town",
+      path: "/towns/:id",
+      component: TownView,
     },
     {
       name: "Market",
