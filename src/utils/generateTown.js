@@ -64,9 +64,16 @@ function generateGroups(townType) {
   for (const groupName in townType.groupSpawnRate) {
     const groupType = groupTypes.find((g) => g.name === groupName);
     if (groupType) {
-      const groupSize = Math.floor(
+      const baseGroupSize = Math.floor(
         population * townType.groupSpawnRate[groupName]
       );
+
+      const randomFactor = Math.random() * 0.2 - 0.1;
+      const groupSize = Math.max(
+        1,
+        Math.floor(baseGroupSize * (1 + randomFactor))
+      );
+
       if (groupSize > 0) {
         groups.push({
           id: nanoid(),

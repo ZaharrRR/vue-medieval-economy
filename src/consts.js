@@ -25,7 +25,7 @@ export const townTypes = [
     },
     avgPopulation: 700,
     avgWealth: 0.3,
-    avgBudget: 3000,
+    avgBudget: 1500,
   },
   {
     name: "city",
@@ -39,7 +39,7 @@ export const townTypes = [
     },
     avgPopulation: 1500,
     avgWealth: 0.4,
-    avgBudget: 1000,
+    avgBudget: 5000,
   },
 ];
 
