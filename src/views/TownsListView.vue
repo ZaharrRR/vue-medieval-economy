@@ -6,7 +6,11 @@
         <MapGrid :currentTown="currentTown" />
       </div>
 
-      <div v-if="currentTown" class="flex gap-3 w-full">
+      <div class="bg-[#444444] p-3 rounded h-fit w-fit">
+        {{ formatDays(TimeStore.days) }}
+      </div>
+
+      <div v-if="currentTown" class="flex gap-3">
         <div>
           <span class="text-sm italic">selected town</span>
           <div v-if="currentTown" class="bg-[#444444] p-3 rounded">
@@ -75,7 +79,9 @@ import { gridSize } from "@/utils/generateCoordinates";
 import { RouterLink } from "vue-router";
 
 import { useTownStore } from "@/stores/TownStore";
+import { useTimeStore } from "@/stores/TimeStore";
 
+const TimeStore = useTimeStore();
 const TownStore = useTownStore();
 
 const towns = TownStore.getTowns;
@@ -92,6 +98,17 @@ const setTown = (id) => {
 const getTotalPopulation = (index) => {
   return towns[index].groups.reduce((acc, group) => acc + group.size, 0);
 };
+
+function formatDays(days) {
+  const weeksInMonth = 4;
+  const daysInWeek = 7;
+
+  const n = days % daysInWeek;
+  const x = Math.floor(days / daysInWeek) % weeksInMonth;
+  const y = Math.floor(days / (daysInWeek * weeksInMonth));
+
+  return `${n}d, ${x}w, ${y}m`;
+}
 </script>
 
 <style scoped>

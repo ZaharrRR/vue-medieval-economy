@@ -27,14 +27,20 @@
 import { onMounted, ref } from "vue";
 
 import { useTownStore } from "@/stores/TownStore";
+import { useTimeStore } from "@/stores/TimeStore";
 
 const TownStore = useTownStore();
+const TimeStore = useTimeStore();
+
+const isHovered = ref();
+
+setInterval(() => {
+  TimeStore.addDay();
+}, 2500);
 
 onMounted(() => {
   TownStore.generateTowns(20);
 });
-
-const isHovered = ref();
 </script>
 
 <style scoped>
