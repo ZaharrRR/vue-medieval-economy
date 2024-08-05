@@ -28,11 +28,7 @@ const TownStore = useTownStore();
 
 const towns = TownStore.getTowns;
 
-const props = defineProps({
-  currentTown: {
-    type: Object,
-  },
-});
+const currentTown = defineModel();
 
 const gridSize = {
   width: 20,
@@ -50,7 +46,7 @@ const showTown = (x, y) => {
     (town) => town.coordinates.x === x && town.coordinates.y === y
   );
   if (town) {
-    props.currentTown = town;
+    currentTown.value = town;
   }
 };
 
@@ -63,9 +59,9 @@ const getTownName = (x, y) => {
 
 const isTownSelected = (x, y) => {
   return (
-    props.currentTown &&
-    props.currentTown.coordinates.x === x &&
-    props.currentTown.coordinates.y === y
+    currentTown.value &&
+    currentTown.value.coordinates.x === x &&
+    currentTown.value.coordinates.y === y
   );
 };
 </script>

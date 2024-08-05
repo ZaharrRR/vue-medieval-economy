@@ -5,6 +5,7 @@ import { generateTowns } from "@/utils/generateTown";
 export const useTownStore = defineStore("townStore", {
   state: () => ({
     towns: [],
+    selectedTownId: "",
   }),
   getters: {
     getTowns() {

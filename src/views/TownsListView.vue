@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <div>
         <span class="text-sm italic">you can select city by click</span>
-        <MapGrid :currentTown="currentTown" />
+        <MapGrid v-model="currentTown" />
       </div>
 
       <div class="bg-[#444444] p-3 rounded h-fit w-fit">
